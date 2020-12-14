@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Info</title>
+</head>
+<body>
+    {% for service_info in service_history %}
+        {{ service_info.service_no }}<br>
+        {{ service_info.mileage }}<br>
+        {{ service_info.work_completed}}<br>
+        {{ service_info.date_of_service }}<br>
+    {% endfor %}   
+</body>
+</html>
