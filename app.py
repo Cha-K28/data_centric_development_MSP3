@@ -18,11 +18,25 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+def home_page():
+    return render_template("home.html")
+
+
+@app.route("/get_service_info")
 def get_service_info():
     service_history = list(mongo.db.service_history.find())
     return render_template("service_info.html",
             service_history=service_history)
 
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
