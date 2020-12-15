@@ -17,24 +17,66 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# Home
+# Home ---------------------------------------------------
+
+
 @app.route("/")
 def home_page():
     return render_template("home.html")
 
-# Service Info
+# End Home ---------------------------------------------------
+
+
+# Service Info ---------------------------------------------------
+
+
 @app.route("/get_service_info")
 def get_service_info():
     service_history = list(mongo.db.service_history.find())
     return render_template("service_info.html",
             service_history=service_history)
 
-# Login
-@app.route("/login")
+# End Service Info ---------------------------------------------------
+
+
+# Login ---------------------------------------------------
+
+
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "get_service_info", username=session["user"]))    
+
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
     return render_template("login.html")
 
-# Log Out
+# End Login ---------------------------------------------------
+
+
+# Log Out ---------------------------------------------------
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -42,8 +84,12 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+# End Log Out ---------------------------------------------------
 
-# Register
+
+# Register ---------------------------------------------------
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
 
@@ -68,6 +114,8 @@ def register():
         return redirect(url_for("get_service_info", username=session["user"]))
 
     return render_template("register.html")
+
+# End Register ---------------------------------------------------
 
 
 if __name__ == "__main__":
