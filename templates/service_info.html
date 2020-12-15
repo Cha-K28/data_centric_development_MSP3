@@ -20,7 +20,10 @@
         <td>{{ service_info.work_completed }}</td>
         <td>{{ service_info.date_of_service}}</td>
         <td>{{ service_info.garage }}</td>
-        <td>{{ service_info.edit }}</td>
+        <td>{{ service_info.edit }}
+            <a href="#"class="btn-default btn-sm" aria-label="Delete" title="Delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            <a href="#" rel="noopener noreferrer" class="btn-default btn-sm" aria-label="Edit" title="Edit"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>
+        </td>
     </tr>
     {% endfor %}
 </table>
