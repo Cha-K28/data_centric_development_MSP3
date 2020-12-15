@@ -17,7 +17,7 @@
         <!-- top navbar -->
 		<nav class="nav-extended text-shadow light-blue darken-1">
 			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">Service History</a>
+				<a href="{{ url_for('home_page') }}" class="brand-logo">ServiceHistory.ie</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="{{ url_for('home_page') }}">Home</a></li>
@@ -37,7 +37,7 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align light-blue-text text-darken 4">Service History</h4></li>
+            <li><h4 class="center-align light-blue-text text-darken 4">ServiceHistory.ie</h4></li>
             <li><a href="{{ url_for('home_page') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('get_service_info') }}">Service Info</a></li>
@@ -78,5 +78,31 @@
     {% block scripts %}
     {% endblock %}
 
+    <!--footer--> 
+
+<footer class="page-footer">
+    <div class="container">
+    <div class="row">
+        <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+            <li><a class="grey-text text-lighten-3" href="https://www.cartell.ie/">Cartell.ie</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.carsireland.ie/">CarsIreland.ie</a></li>
+        </ul>
+        </div>
+    </div>
+    </div>
+    <div class="footer-copyright">
+    <div class="container">
+    © 2020 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="#!">Social Links</a>
+    </div>
+    </div>
+</footer>
+            
 </body>
 </html>

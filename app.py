@@ -57,7 +57,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "get_service_info", username=session["user"]))    
+                        "get_service_info", username=session["user"]))
 
             else:
                 # invalid password match
