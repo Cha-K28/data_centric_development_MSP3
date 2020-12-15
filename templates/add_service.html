@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add Service</h2>
+
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12" method="POST" action=''>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix">Vehicle Registration</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="service_number" type="text" class="validate">
+            <label for="iservice_numbe">Service Number</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="mileage" type="text" class="validate">
+            <label for="mileage">Mileage(kms)</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="work_carried_out" type="text" class="validate">
+            <label for="work_carried_out">Work Carried Out</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="date" type="text" class="validate">
+            <label for="date">Date of Service</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="garage" type="text" class="validate">
+            <label for="garage">Garage</label>
+        </div>
+      </div>
+    </form>
+</div>
+
+{% endblock %}

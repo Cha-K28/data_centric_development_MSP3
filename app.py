@@ -118,7 +118,12 @@ def register():
 # End Register ---------------------------------------------------
 
 
+@app.route("/add_service")
+def add_service():
+    return render_template("add_service.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)

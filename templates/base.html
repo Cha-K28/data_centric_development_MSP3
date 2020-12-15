@@ -23,7 +23,7 @@
 					<li><a href="{{ url_for('home_page') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('get_service_info') }}">Service Info</a></li>
-                        <li><a href="#">Add Service</a></li>
+                        <li><a href="{{ url_for('add_service') }}">Add Service</a></li>
                         <li><a href="#">Edit Service</a></li>
                         <li><a href="#">Delete Service</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -41,7 +41,7 @@
             <li><a href="{{ url_for('home_page') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('get_service_info') }}">Service Info</a></li>
-                        <li><a href="#">Add Service</a></li>
+                        <li><a href="{{ url_for('add_service') }}">Add Service</a></li>
                         <li><a href="#">Edit Service</a></li>
                         <li><a href="#">Delete Service</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
