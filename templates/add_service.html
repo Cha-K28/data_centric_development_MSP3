@@ -7,27 +7,27 @@
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12" method="POST" action=''>
-            <input id="icon_prefix" type="text" class="validate">
+            <input id="icon_prefix" name="icon_prefix" type="text" class="validate" required>
             <label for="icon_prefix">Vehicle Registration</label>
         </div>
         <div class="input-field col s12">
-            <input id="service_number" type="text" class="validate">
+            <input id="service_number" name="service_number" type="text" class="validate">
             <label for="iservice_numbe">Service Number</label>
         </div>
         <div class="input-field col s12">
-            <input id="mileage" type="text" class="validate">
+            <input id="mileage" name="mileage" type="text" class="validate" required> 
             <label for="mileage">Mileage(kms)</label>
         </div>
         <div class="input-field col s12">
-            <input id="work_carried_out" type="text" class="validate">
+            <input id="work_carried_out" name="work_carried_out" type="text" class="validate">
             <label for="work_carried_out">Work Carried Out</label>
         </div>
         <div class="input-field col s12">
-            <input id="date" type="text" class="validate">
-            <label for="date">Date of Service</label>
+            <input id="date_of_service" name="date_of_service" type="text" class="datepicker" validate>
+            <label for="date_of_service">Date of Service</label>
         </div>
         <div class="input-field col s12">
-            <input id="garage" type="text" class="validate">
+            <input id="garage" name="garage" type="text" class="validate">
             <label for="garage">Garage</label>
         </div>
       </div>
