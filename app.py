@@ -118,8 +118,23 @@ def register():
 # End Register ---------------------------------------------------
 
 
-@app.route("/add_service")
+@app.route("/add_service", methods=["GET", "POST"])
 def add_service():
+    if request.method == "POST":
+        service = {
+            "registration": request.form.get("vehicle_registration"),
+            "service_no": request.form.get("service_number"),
+            "mileage": request.form.get("mileage"),
+            "work_completed": request.form.get("work_carried_out"),
+            "date_of_service": request.form.get("date_of_service"),
+            "garage": request.form.get("garage"),
+            "created_by": session["user"]
+        }
+
+        mongo.db.service_history.insert_one(service)
+        flash("Service Successfully Added")
+        return redirect(url_for("get_service_info"))
+
     return render_template("add_service.html")
 
 

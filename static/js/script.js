@@ -2,6 +2,7 @@
     $('.sidenav').sidenav({edge: "right"});
     $('.datepicker').datepicker({
         format: "dd mmmm, yyyy",
-        yearRange: 3
+        yearRange: 3,
+        showClearBtn: "True"
     });
   });
