@@ -117,6 +117,8 @@ def register():
 
 # End Register ---------------------------------------------------
 
+# Add Service ---------------------------------------------------
+
 
 @app.route("/add_service", methods=["GET", "POST"])
 def add_service():
@@ -137,8 +139,34 @@ def add_service():
 
     return render_template("add_service.html")
 
+# Add Service ---------------------------------------------------
+
+
+# Edit Task ---------------------------------------------------
+
+@app.route("/edit_service/<service_id>", methods=["GET", "POST"])
+def edit_service(service_id):
+    service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
+    return render_template("edit_service.html", service=service)
+
+# End Edit Task ---------------------------------------------------
+
+# Delete Task ---------------------------------------------------
+
+
+@app.route("/delete_service/<service_id>")
+def delete_service(service_id):
+    mongo.db.service_history.remove({"_id": ObjectId(service_id)})
+    flash("Service Deleted")
+    return redirect(url_for("get_service_info"))
+
+# End Delete Task ---------------------------------------------------
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+

@@ -1,6 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>this is the edit service page</p>
+<h2>Edit Service</h2>
+
+<div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('edit_service', service_id=service_info._id) }}">
+      <div class="row">
+        <div class="input-field col s12">
+            <input id="vehicle_registration" name="vehicle_registration" type="text" class="validate" required>
+            <label for="vehicle_registration">Vehicle Registration</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="service_number" name="service_number" type="text" class="validate">
+            <label for="service_number">Service Number</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="mileage" name="mileage" type="text" class="validate" required> 
+            <label for="mileage">Mileage(kms)</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="work_carried_out" name="work_carried_out" type="text" class="validate">
+            <label for="work_carried_out">Work Carried Out</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="date_of_service" name="date_of_service" type="text" class="datepicker" validate required>
+            <label for="date_of_service">Date of Service</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="garage" name="garage" type="text" class="validate">
+            <label for="garage">Garage</label>
+        </div>
+      </div>
+      <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Save Changes
+            
+  </button>
+      </div>
+    </form>
+</div>
 
 {% endblock %}
