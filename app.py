@@ -147,7 +147,7 @@ def add_service():
 @app.route("/edit_service/<service_id>", methods=["GET", "POST"])
 def edit_service(service_id):
     service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
-    return render_template("edit_service.html", service=service)
+    return render_template("edit_service.html", service_info=service)
 
 # End Edit Task ---------------------------------------------------
 
