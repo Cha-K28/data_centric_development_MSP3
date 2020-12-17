@@ -1,9 +1,10 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for,)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -26,13 +27,22 @@ def home_page():
 
 # End Home ---------------------------------------------------
 
+# Auto log out 
+
+
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=30)
+
 
 # Service Info ---------------------------------------------------
 
 
 @app.route("/get_service_info")
 def get_service_info():
-    service_history = list(mongo.db.service_history.find())
+    service_history = list(mongo.db.service_history.find(filter = { "created_by": session["user"] }))
+
     return render_template("service_info.html",
             service_history=service_history)
 
@@ -149,7 +159,18 @@ def edit_service(service_id):
     service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
     return render_template("edit_service.html", service_info=service)
 
+        # if request.method == "POST":
+
+        # service['registration'] = request.form.get("vehicle_registration")
+
+
+        # mongo.db.service_history.update(service)
+        # flash("Service Successfully updated")
+        # return redirect(url_for("get_service_info"))
+
 # End Edit Task ---------------------------------------------------
+
+
 
 # Delete Task ---------------------------------------------------
 
