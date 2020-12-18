@@ -6,3 +6,26 @@
   text-align: center;
   width: 75%;
 }
+
+.nav_bar{
+    background-color: #222222
+}
+
+.footer_background {
+  background-color: #222222;
+}
+
+table {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        max-width: 50%;
+    }
+}
+
+h2 {
+
+  text-align: center;
+}
