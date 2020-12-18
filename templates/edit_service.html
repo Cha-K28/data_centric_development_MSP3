@@ -7,27 +7,27 @@
     <form class="col s12" method="POST" action="{{ url_for('update_service', service_id=service_info._id) }}">
       <div class="row">
         <div class="input-field col s12">
-            <input id="vehicle_registration" name="vehicle_registration" type="text" class="validate" placeholder="{{ service_info.registration }}">
+            <input id="vehicle_registration" name="vehicle_registration" type="text" class="validate" value="{{ service_info.registration }}">
             <label for="vehicle_registration">Vehicle Registration</label>
         </div>
         <div class="input-field col s12">
-            <input id="service_number" name="service_number" type="text" class="validate" placeholder="{{ service_info.service_no }}"> 
+            <input id="service_number" name="service_number" type="text" class="validate" value="{{ service_info.service_no }}"> 
             <label for="service_number">Service Number</label>
         </div>
         <div class="input-field col s12">
-            <input id="mileage" name="mileage" type="text" class="validate" placeholder="{{ service_info.mileage }}"> 
+            <input id="mileage" name="mileage" type="text" class="validate" value="{{ service_info.mileage }}"> 
             <label for="mileage">Mileage(kms)</label>
         </div>
         <div class="input-field col s12">
-            <input id="work_carried_out" name="work_carried_out" type="text" class="validate" placeholder="{{ service_info.work_completed }}">
+            <input id="work_carried_out" name="work_carried_out" type="text" class="validate" value="{{ service_info.work_completed }}">
             <label for="work_carried_out">Work Carried Out</label>
         </div>
         <div class="input-field col s12">
-            <input id="date_of_service" name="date_of_service" type="text" class="datepicker" validate  placeholder="{{ service_info.date_of_service }}">
+            <input id="date_of_service" name="date_of_service" type="text" class="datepicker" validate  value="{{ service_info.date_of_service }}">
             <label for="date_of_service">Date of Service</label>
         </div>
         <div class="input-field col s12">
-            <input id="garage" name="garage" type="text" class="validate" placeholder="{{ service_info.garage }}">
+            <input id="garage" name="garage" type="text" class="validate" value="{{ service_info.garage }}">
             <label for="garage">Garage</label>
         </div>
       </div>

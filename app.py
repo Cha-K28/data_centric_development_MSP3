@@ -18,22 +18,22 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# Home ---------------------------------------------------
-
 
 @app.route("/")
 def home_page():
+    """
+    Home page route.
+    """
     return render_template("home.html")
-
-# End Home ---------------------------------------------------
-
-# Auto log out 
 
 
 @app.before_request
 def make_session_permanent():
+    """
+    Makes session.....
+    """
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=30)
+    app.permanent_session_lifetime = timedelta(minutes=60)
 
 
 # Service Info ---------------------------------------------------
@@ -41,10 +41,10 @@ def make_session_permanent():
 
 @app.route("/get_service_info")
 def get_service_info():
-    service_history = list(mongo.db.service_history.find(filter = { "created_by": session["user"] }))
+    service_history = list(mongo.db.service_history.find(
+        filter={"created_by": session["user"]}))
 
-    return render_template("service_info.html",
-            service_history=service_history)
+    return render_template("service_info.html", service_history=service_history)
 
 # End Service Info ---------------------------------------------------
 
@@ -54,11 +54,14 @@ def get_service_info():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    User login function..
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        # TODO I wanted to add something
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
@@ -159,21 +162,36 @@ def edit_service(service_id):
     service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
     return render_template("edit_service.html", service_info=service)
 
-        # if request.method == "POST":
-
-        # service['registration'] = request.form.get("vehicle_registration")
-
-
-        # mongo.db.service_history.update(service)
-        # flash("Service Successfully updated")
-        # return redirect(url_for("get_service_info"))
-
 # End Edit Task ---------------------------------------------------
 
+# update Task ---------------------------------------------------
+
+
+@app.route("/update_service/<service_id>", methods=["GET", "POST"])
+def update_service(service_id):
+    service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
+
+    if request.method == "POST":
+
+        service['registration'] = request.form.get("vehicle_registration")
+        service['service_no'] = request.form.get("service_number")
+        service['mileage'] = request.form.get("mileage")
+        service['work_completed'] = request.form.get("work_carried_out")
+        service['date_of_service'] = request.form.get("date_of_service")
+        service['garage'] = request.form.get("garage")
+
+        mongo.db.service_history.save(service)
+        flash("Service Successfully updated")
+        return redirect(url_for("get_service_info"))
+
+    return render_template("edit_service.html", service_info=service)
+
+
+
+# end update Task ----------------------------------------------
 
 
 # Delete Task ---------------------------------------------------
-
 
 @app.route("/delete_service/<service_id>")
 def delete_service(service_id):
