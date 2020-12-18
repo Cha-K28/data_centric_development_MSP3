@@ -187,17 +187,12 @@ def update_service(service_id):
     return render_template("edit_service.html", service_info=service)
 
 
-
-# end update Task ----------------------------------------------
-
-
-# Delete Task ---------------------------------------------------
-
 @app.route("/delete_service/<service_id>")
 def delete_service(service_id):
     mongo.db.service_history.remove({"_id": ObjectId(service_id)})
     flash("Service Deleted")
     return redirect(url_for("get_service_info"))
+
 
 # End Delete Task ---------------------------------------------------
 
