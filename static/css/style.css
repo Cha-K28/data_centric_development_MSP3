@@ -1,3 +1,7 @@
+h2 {
+
+  text-align: center;
+}
 
 .home_text {
   display: block;
@@ -25,10 +29,6 @@ table {
     }
 }
 
-h2 {
-
-  text-align: center;
-}
 
 .form_button{
     background-color: firebrick;
