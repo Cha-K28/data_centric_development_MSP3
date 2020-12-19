@@ -33,7 +33,7 @@ def make_session_permanent():
     Makes session
     """
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=60)
+    app.permanent_session_lifetime = timedelta(minutes=30)
 
 
 @app.route("/get_service_info")

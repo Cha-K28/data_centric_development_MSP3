@@ -1,45 +1,139 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# README.md
+# ServiceHistory
 
-Welcome Cha_K23,
+## About
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+If you are buying a car wouldnt you like to know that it was well looked after. 
 
-## Gitpod Reminders
+Thats where a service history comes in. By documenting all the work that has been done on your car it makes it alot easier to sell, and alot easier to trade in. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The more detailed the service history the better. 
 
-`python3 -m http.server`
+From oil changes to. new wipers and even a bulb, everything should be documented. 
 
-A blue button should appear to click: *Make Public*,
+Its best to keep all this in one place. However alot of people may not know that their service history is usually in the vehicle glove box. Aswell as this people can forget to fill it in. 
 
-Another blue button should appear to click: *Open Browser*.
+Thats when this website comes into play. As an online service history its very simple to fill in when you are on a computer, tablet or smart phone. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+It was key to have a website that was easy to use for any vehicle user. Many people are not familiar with car terminology such as timing belts, clutches, turbos or Automatic transmission oils, 
+The beauty of the site is that you can fill in what you want and what you understand. 
 
-A blue button should appear to click: *Make Public*,
+As well as car owners it could also be used for businessess with a fleet of cars that want to keep all service histories in one place. 
+It can even be used by cyclists who want to keep thier bycycle service history up to date. 
 
-Another blue button should appear to click: *Open Browser*.
+### Features left to implement
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+One feature in particular id would like to add to the website in the future is the and extra table so that a user can have different cars based on the reg number. At present if a user has more
+than one vehicle, the service histories will be mixed. 
 
-## Updates Since The Instructional Video
+This would open up the site to even more potential users such as garages and dealerships that want to keep track on the vehicle they have worked on. 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Id also like to add some content to the carousel on the home page.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+The other feature id like to add is an email subscription as part of the registration and and "forgot password" function if a user forget their password. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Wireframes
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## UX
+This website can be used by any vehicle owner. It has one main funtion.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+The function of the website is an online service history for your car. You Register, with a username and password, and following that simple step you can begin adding your service history details. 
+Too often peolple remove the service book from their cars or dont even know where it is so an online service history that is simple to use is a perfect solution. 
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+Once the user registers they can then add a service, they can edit it and if delete it id nessessary. 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
+The entire website is laid out in an easy to use way so that anybody can navigate it.
+The buttons are large and its very clear what each button does. Register, Add, View, Edit/update and Delete.
 
-Happy coding!
+The Data to be entered in the table is very clear so there is no confusion for the user. 
+
+## Features
+
+The website has only a few features as it has one main function. 
+
+It has an Register Form, Log in Form and Service info Table. 
+
+Another nice feature on the homepage is the Carousel. In the future id like to popuplate the carousel with info displaying just how important a proper service history is, instead of having it in a
+paragraph. Some nicer pictures with nicer text would be very appealing to a user. 
+
+Another feature i used that was new to me was the Modal. The modal again was got from Materialize and used to ensure the user wanted to delete a serive. 
+
+
+
+
+## Technologies Used
+
+Materialize: "https://materializecss.com/getting-started.html"
+Materialize was used throughout the website. I uses Materialize for the Carousel on the home page, the Login and Register Forms and the Service History Table. 
+It was also used to generate both the header and the footer. 
+
+
+Font Awesome: "https://fontawesome.com/"
+Font awsome was used for the icons on the website.
+
+W3schools: "https://www.w3schools.com/css/default.asp"
+I used W3 schools at various stages of the project to help me understand some of Javascript, Python, CSS and HTML.
+
+Jquery: "https://jquery.com/"
+I used Jquery for the js parts of the project. As alot of it linked to my materialize features it was very handy to take them from there and they worked seamlessly.
+
+
+## Testing
+
+The site was thoroughly tested on various different devices and browsers. Chrome, Safari, Firefox on Mac and PC. Also worked on both Iphone and Android.
+
+The site works fine on both mobile and laptops.
+
+Phone Screen sizes varied from Iphone 5/SE to Iphone 11.
+
+Laptop screen sizes included 13" and 15.6". It was also tested on a larger 22" monitor. 
+
+IT was tested using both chrome dev tools and actual devices.
+
+I also sent it to friends and family for user testing.
+
+## Issues
+
+The main issue i had and still have with the site is that the service info table does not display correctly on smaller screens. I asked the tutors about this and It seems to be
+a common issue with small screens. 
+
+another issue i had was getting the service data to update. Initially i tried to do edit and update with in the one app route. 
+I solved it by creating a seperate app route for the update function. 
+
+The other issue was when i loged in with any user the service info was displayed. It should of been specific to each user. Thankfully, i got this sorted by adding a "created by" field 
+and filtering on this when the user logs in. Now the service histories are specific to the loged in user. 
+
+Another was one that the user stayed logged in all the time. I added a session lifetime of 30 mins to fix this. 
+
+I had other small styling issues 
+
+
+## Deployment
+
+The Deployment for this site was slightly different to. previous Projects as this time i used Heroku. 
+
+It was alos very simple
+
+1. Add Requirements.txt an procfile
+2. push code to github
+3. log into heroku
+4. configure VARs settings
+5. after pushing to git enable auto updates on heroku
+6. Enable auto deployment 
+7. Click Deply branch (this may take a minute)
+8. click View to see Deployed branch
+
+
+## Content:
+All Content about service histories was written by myself.
+
+## Media:
+All pictures used came from google searches.
+
+## Acknowledgements
+The code institute tutor team and in particular Igor who helped me at many stages throughout this project particularly when i had difficulties understanding wiring up the app routes.  
+The idea came from my work, as part of my work i often have to deal with service historys so this give me the idea for the website
+The IT team at work who took time out of their busy days to give me advice anytime I asked.
+To Gerry, my mentor, for his wonderful guidance and advice throughout the project.
