@@ -30,33 +30,33 @@ def home_page():
 @app.before_request
 def make_session_permanent():
     """
-    Makes session.....
+    Makes session
     """
     session.permanent = True
     app.permanent_session_lifetime = timedelta(minutes=60)
 
 
-# Service Info ---------------------------------------------------
-
-
 @app.route("/get_service_info")
 def get_service_info():
+
+    """
+    Service info route.
+    """
+
     service_history = list(mongo.db.service_history.find(
         filter={"created_by": session["user"]}))
 
-    return render_template("service_info.html", service_history=service_history)
-
-# End Service Info ---------------------------------------------------
-
-
-# Login ---------------------------------------------------
+    return render_template("service_info.html",
+                           service_history=service_history)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
     """
-    User login function..
+    Login function.
     """
+
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -84,27 +84,26 @@ def login():
 
     return render_template("login.html")
 
-# End Login ---------------------------------------------------
-
-
-# Log Out ---------------------------------------------------
-
 
 @app.route("/logout")
 def logout():
+
+    """
+    Log out funtion.
+    """
+
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
-# End Log Out ---------------------------------------------------
-
-
-# Register ---------------------------------------------------
-
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+
+    """
+    Register funtion.
+    """
 
     if request.method == "POST":
         # check if username already exists in db
@@ -128,13 +127,14 @@ def register():
 
     return render_template("register.html")
 
-# End Register ---------------------------------------------------
-
-# Add Service ---------------------------------------------------
-
 
 @app.route("/add_service", methods=["GET", "POST"])
 def add_service():
+
+    """
+    Add Service History
+    """
+
     if request.method == "POST":
         service = {
             "registration": request.form.get("vehicle_registration"),
@@ -152,23 +152,25 @@ def add_service():
 
     return render_template("add_service.html")
 
-# Add Service ---------------------------------------------------
-
-
-# Edit Task ---------------------------------------------------
 
 @app.route("/edit_service/<service_id>", methods=["GET", "POST"])
 def edit_service(service_id):
+
+    """
+    Edit Service History
+    """
+
     service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
     return render_template("edit_service.html", service_info=service)
-
-# End Edit Task ---------------------------------------------------
-
-# update Task ---------------------------------------------------
 
 
 @app.route("/update_service/<service_id>", methods=["GET", "POST"])
 def update_service(service_id):
+
+    """
+    Edit Service History
+    """
+
     service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
 
     if request.method == "POST":
@@ -189,14 +191,14 @@ def update_service(service_id):
 
 @app.route("/delete_service/<service_id>")
 def delete_service(service_id):
+
+    """
+    Delete Service History
+    """
+
     mongo.db.service_history.remove({"_id": ObjectId(service_id)})
     flash("Service Deleted")
     return redirect(url_for("get_service_info"))
-
-
-# End Delete Task ---------------------------------------------------
-
-
 
 
 if __name__ == "__main__":
