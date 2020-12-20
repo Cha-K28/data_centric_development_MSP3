@@ -61,16 +61,15 @@ def login():
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        # TODO I wanted to add something
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "get_service_info", username=session["user"]))
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "get_service_info", username=session["user"]))
 
             else:
                 # invalid password match
@@ -168,7 +167,7 @@ def edit_service(service_id):
 def update_service(service_id):
 
     """
-    Edit Service History
+    Update Service History
     """
 
     service = mongo.db.service_history.find_one({"_id": ObjectId(service_id)})
@@ -204,5 +203,4 @@ def delete_service(service_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
-
+            debug=False)

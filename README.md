@@ -23,18 +23,13 @@ It can even be used by cyclists who want to keep thier bycycle service history u
 
 The website could also be edited slightly and used for many different reasons, such as shopping lists, a spending tracker or a exorsise tacker. 
 
-### Features left to implement
-
-One feature in particular id would like to add to the website in the future is the and extra table so that a user can have different cars based on the reg number. At present if a user has more
-than one vehicle, the service histories will be mixed. 
-
-This would open up the site to even more potential users such as garages and dealerships that want to keep track on the vehicle they have worked on. 
-
-Id also like to add some content to the carousel on the home page.
-
-The other feature id like to add is an email subscription as part of the registration and and "forgot password" function if a user forget their password. 
-
 ## Wireframes
+
+<p align="center">
+  <img src="images/wireframes/homepage_wireframe.png" width="350" title="home page and login/register">
+  <img src="images/wireframes/service_table_wireframe.png" width="350" title="service info table ">
+</p>
+
 
 
 ## UX
@@ -61,6 +56,17 @@ Another nice feature on the homepage is the Carousel. In the future id like to p
 paragraph. Some nicer pictures with nicer text would be very appealing to a user. 
 
 Another feature i used that was new to me was the Modal. The modal again was got from Materialize and used to ensure the user wanted to delete a serive. 
+
+### Features left to implement
+
+One feature in particular feature i would like to add to the website in the future is the and extra table so that a user can have different cars based on the reg number. At present if a user has more
+than one vehicle, the service histories will be mixed. It could be more of a profile than just logging and seein a table. 
+
+This would open up the site to even more potential users such as garages and dealerships that want to keep track on the vehicle they have worked on. 
+
+Id also like to add some content to the carousel on the home page.
+
+The other feature id like to add is an email subscription as part of the registration and and "forgot password" function if a user forget their password. 
 
 
 
@@ -93,13 +99,17 @@ The site was thoroughly tested on various different devices and browsers. Chrome
 
 The site works fine on both mobile and laptops.
 
-Phone Screen sizes varied from Iphone 5/SE to Iphone 11.
+Phone Screen sizes varied from Iphone 5/SE to Iphone 11. As stated in the issues section, there is a problem with the service info table displaying on smaller screens. 
 
 Laptop screen sizes included 13" and 15.6". It was also tested on a larger 22" monitor. 
 
 IT was tested using both chrome dev tools and actual devices.
 
-I also sent it to friends and family for user testing.
+I also sent it to friends and family for user testing, and there were no issues reported. They could register, add a service, edit it and delete it without any issues.
+
+
+
+
 
 ## Issues
 
