@@ -21,6 +21,8 @@ The beauty of the site is that you can fill in what you want and what you unders
 As well as car owners it could also be used for businessess with a fleet of cars that want to keep all service histories in one place. 
 It can even be used by cyclists who want to keep thier bycycle service history up to date. 
 
+The website could also be edited slightly and used for many different reasons, such as shopping lists, a spending tracker or a exorsise tacker. 
+
 ### Features left to implement
 
 One feature in particular id would like to add to the website in the future is the and extra table so that a user can have different cars based on the reg number. At present if a user has more
@@ -78,6 +80,11 @@ I used W3 schools at various stages of the project to help me understand some of
 
 Jquery: "https://jquery.com/"
 I used Jquery for the js parts of the project. As alot of it linked to my materialize features it was very handy to take them from there and they worked seamlessly.
+
+MongoDB: "https://www.mongodb.com/"
+I used Mongo DB for the Database
+
+
 
 
 ## Testing
